@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripeF - Sustainable Hydration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #004aad;
+    }
+
+    nav ul li a:hover::after,
+    nav ul li a.active::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #004aad;
+      bottom: -4px;
+      left: 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background-color: #000;
+      margin-bottom: 5px;
+      border-radius: 2px;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: #fff;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      animation: rise 2s ease forwards;
+    }
+
+    .hero h1 span {
+      color: #004aad;
+
+        text-shadow:
+            -0.5px -0.5px 0 white,  /* Top-left shadow */
+            0.5px -0.5px 0 white,   /* Top-right shadow */
+            -0.5px 0.5px 0 white,   /* Bottom-left shadow */
+            0.5px 0.5px 0 white;    /* Bottom-right shadow */
+    }
+
+    .hero p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      animation: rise 2.5s ease forwards;
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: 1.5px solid #004aad;
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .hero a:hover {
+      background-color: #004aad;
+    }
+
+    .slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 1s ease;
+      width: 300%;
+    }
+
+    .slide {
+      min-width: 100vw;
+      height: 100vh;
+    }
+
+    .slide1 {
+      background-image: url('web-images/sotol-drink-still-life.jpg');
+    }
+
+    .slide2 {
+      background-image: url('web-images/with-us.jpg');
+    }
+
+    .slide3 {
+      background-image: url('web-images/we-offer.jpg');
+    }
+    .core-section {
+      background: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .core-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #004aad;
+    }
+    .core-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .core-box {
+      border: 0.5px solid transparent;
+      width: 300px;
+      padding: 2rem;
+      transition: border 0.3s;
+    }
+    .core-box:hover {
+      border-color: #004aad;
+    }
+    .core-box i {
+      font-size: 2rem;
+      color: #004aad;
+      margin-bottom: 1rem;
+    }
+    .core-box h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .core-box p {
+      font-size: 1rem;
+    }
+    .testimonials{
+        background-color: #f0f4f8;
+        padding: 4rem 1rem;
+    }
+    .testimonials div h2{
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        color: #2d3748;
+        margin-bottom: 2rem;
+    }
+    .testimonials-container{
+        display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .testimonials-container div{
+        align-self: flex-start;
+        background-color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 1.5rem 1.5rem 1.5rem 0;
+        max-width: 70%;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .testimonials-container div p{
+        margin: 0;
+        color: #2d3748;
+    }
+
+    footer{
+        background-color: #004aad;
+        color: white;
+        padding: 3rem 1rem;
+    }
+    .socials i{
+        color: white;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo"><img src="web-images/Tripef-logo.png" style="max-width: 70px;"></div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+<section class="hero-section">
+    <div class="slider">
+        <div class="slides" id="slides">
+          <div class="slide slide1 hero">
+            <div class="hero-content">
+              <h1><span>- We Are -</span> <br>
+                Nigeria's Leading Sustainable Hydration Provider</h1>
+              <p>With Over 10 years of providing reliable hydration experience</p>
+              <a href="mailto:info@tripef.com">Contact Us</a>
+            </div>
+          </div>
+          <div class="slide slide2 hero">
+            <div class="hero-content">
+              <h1><span>- With Us -</span> <br>
+                You never have to rely on packaged water for hydration anymore</h1>
+              <p>We Save homes and businesses up to 80% in annual water expense.</p>
+              <a href="mailto:info@tripef.com">Contact Us</a>
+            </div>
+          </div>
+          <div class="slide slide3 hero">
+            <div class="hero-content">
+              <h1><span>- We Offer -</span> <br>
+                The best water solutions for homes and offices</h1>
+              <p>From domestic water purifiers to ensure safe drinking water to extensive water treatment facilities for homes and offices.</p>
+              <a href="mailto:info@tripef.com">Contact Us</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- What We Do Section -->
+
+<section class="core">
+    <section class="core-section">
+        <h2 class="core-title">Our Core Pillars</h2>
+        <div class="core-container">
+          <div class="core-box">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Health</h3>
+            <p>We deliver safe, purified water systems that improve your health and protect against waterborne diseases.</p>
+          </div>
+          <div class="core-box">
+            <i class="fas fa-wallet"></i>
+            <h3>Finance</h3>
+            <p>Our solutions save homes and businesses up to 85% annually on water purchases and logistics.</p>
+          </div>
+          <div class="core-box">
+            <i class="fas fa-leaf"></i>
+            <h3>Environment</h3>
+            <p>We reduce plastic waste and carbon emissions by eliminating reliance on packaged water.</p>
+          </div>
+        </div>
+      </section>
+</section>
+
+<section class="core">
+    <section class="core-section">
+        <h2 class="core-title">What We Do</h2>
+        <div class="core-container">
+            <p>We offer water solutions for homes, estates, and businesses—installing domestic purifiers to provide pure alkaline drinking water on demand while cutting costs on dispenser refills. We also help estates treat water for everyday domestic needs—cooking, washing, bathing, and more—by eliminating harmful impurities.</p>
+          <div class="core-box">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <h3>1K+</h3>
+            <h4>Households</h4>
+            <p></p>
+          </div>
+          <div class="core-box">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <h3>8K+</h3>
+            <p>Daily Users</p>
+          </div>
+          <div class="core-box">
+            <i class="fa fa-building" aria-hidden="true"></i>
+            <h3>11</h3>
+            <p>Businesses</p>
+          </div>
+          <div class="core-box">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            <h3>50M+</h3>
+            <p>Plastics Prevented</p>
+          </div>
+          <div class="core-box">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <h3>100%</h3>
+            <p>Customer Satisfaction</p>
+          </div>
+        </div>
+      </section>
+</section>
+
+<!-- Testimonial Section -->
+<section class="testimonials">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2>What People Are Saying</h2>
+      
+      <div class="testimonials-container">
+        <div>
+          <p>“We’ve completely eliminated the need for dispenser deliveries in our office. My staffs now drink from TripeF Hydration Systems daily.”</p>
+          <small style="color: #4a5568; display: block; margin-top: 0.5rem;">– M.D Realty Point, Ogudu GRA.</small>
+        </div>
+  
+        <div style="align-self: flex-end; background-color: #e6fffa; border-radius: 1.5rem 1.5rem 0 1.5rem;">
+          <p>“TripeF helped us save over ₦1M every term from dispenser water supply. No buying dispensers at our School anymore”</p>
+          <small style="color: #4a5568; display: block; margin-top: 0.5rem;">– Admin Head, British Nigerian Academy.</small>
+        </div>
+  
+        <div>
+          <p>“I tested the water from TripeF Hydration System at LASWARCO, and I was very happy to learn that the water is actually pure and safe for drinking, my house water has been terrible for a long time now.”</p>
+          <small style="color: #4a5568; display: block; margin-top: 0.5rem;">– A Happy Customer, Lekki Lagos.</small>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- Videos -->
+
+<section class="bg-white py-16 flex justify-center items-center h-full">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">Videos</h2>
+
+    <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      
+      <!-- Reel 1 -->
+      <div class="rounded-xl overflow-hidden shadow-md">
+        <blockquote 
+          class="instagram-media" 
+          data-instgrm-permalink="https://www.instagram.com/reel/DGK4BFTsarv/?igsh=MTgzZHRreGFhOHRhag==" 
+          data-instgrm-version="14" 
+          style="background:#FFF; border:0; margin: 0 auto; padding:0;">
+        </blockquote>
+      </div>
+
+      <!-- Reel 2 -->
+      <div class="rounded-xl overflow-hidden shadow-md">
+        <blockquote 
+          class="instagram-media" 
+          data-instgrm-permalink="https://www.instagram.com/reel/DHrSmuus2RC/?igsh=MXFyMzh4NG95NWU1MA==" 
+          data-instgrm-version="14">
+        </blockquote>
+      </div>
+      <!-- Reel 3 -->
+      <div class="rounded-xl overflow-hidden shadow-md">
+        <blockquote 
+          class="instagram-media" 
+          data-instgrm-permalink="https://www.instagram.com/reel/DJjhOW3MCvP/?igsh=ZzgxYW5xNWM0YzJn" 
+          data-instgrm-version="14">
+        </blockquote>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+  
+ <!-- Footer Section -->
+<footer class="bg-[#004aad] text-white px-4 py-12 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-wrap gap-8 justify-between">
+      <div class="flex-1 min-w-[250px]">
+        <h3 class="text-xl mb-4 font-semibold"><img src="web-images/transparent logo (1).png" style="max-width: 120px;"></h3>
+        <p class="leading-relaxed">Providing safe, sustainable water solutions to homes, schools, and businesses across Nigeria.</p>
+      </div>
+      <div class="flex-1 min-w-[150px]">
+        <h4 class="text-lg mb-4 font-medium">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="text-white hover:underline">About Us</a></li>
+          <li><a href="services.html" class="text-white hover:underline">Services</a></li>
+          <li><a href="#contact" class="text-white hover:underline">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="flex-1 min-w-[200px]">
+        <h4 class="text-lg mb-4 font-medium">Contact</h4>
+        <p>Email: <a href="mailto:info@tripef.com" class="text-white hover:underline">info@tripef.com</a></p>
+        <p>Phone: <a href="tel:+2349053729450" class="text-white hover:underline">+234 905 372 9450</a></p>
+        <div class="mt-4 flex gap-4">
+          <a href="https://www.facebook.com/share/1AjsHxfCvC/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/tripef_h2o/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-300"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com/Tripef_Global" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300"><i class="fab fa-x"></i></a>
+          <a href="https://www.linkedin.com/company/tripef-global-ltd/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-100"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8 text-sm text-white">
+      &copy; 2025 TripeF Global Ltd. All rights reserved.
+    </div>
+  </footer>
+
+
+
+  
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    // Hero Slider
+    let index = 0;
+    const slides = document.getElementById("slides");
+    const total = slides.children.length;
+
+    setInterval(() => {
+      index = (index + 1) % total;
+      slides.style.transform = `translateX(-${index * 100}vw)`;
+    }, 5000);
+
+    
+  </script>
+  
+<!-- Load Instagram Embed SDK -->
+<script async src="//www.instagram.com/embed.js"></script>
+</body>
+
+</html>

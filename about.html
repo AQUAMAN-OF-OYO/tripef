@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripeF - Sustainable Hydration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #004aad;
+    }
+
+    nav ul li a:hover::after,
+    nav ul li a.active::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #004aad;
+      bottom: -4px;
+      left: 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background-color: #000;
+      margin-bottom: 5px;
+      border-radius: 2px;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+    .help a{
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border: 1.5px solid #004aad;
+        background: transparent;
+        color: #004aad;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-left: 35%;
+    }
+    .help a:hover{
+        background-color: #004aad;
+        color: #fff;
+    }
+    
+    footer{
+        background-color: #004aad;
+        color: white;
+        padding: 3rem 1rem;
+    }
+    .socials i{
+        color: white;
+    }
+    .about-us{
+        color: black;
+    }
+    #about{
+        color: #000;
+    }
+    #about h1{
+        text-shadow:
+            -0.5px -0.5px 0 white,  /* Top-left shadow */
+            0.5px -0.5px 0 white,   /* Top-right shadow */
+            -0.5px 0.5px 0 white,   /* Bottom-left shadow */
+            0.5px 0.5px 0 white;    /* Bottom-right shadow */
+    }
+  </style>
+</head>
+<body>  
+  <header>
+    <div class="logo"><img src="web-images/Tripef-logo.png" style="max-width: 70px;"></div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about" class="text-white mt-8">
+    <!-- Hero Header with Background Image -->
+    <div class="bg-cover bg-center py-20 text-center" style="background-image: url('web-images/about-us.jpg');">
+      <h1 class="text-4xl md:text-5xl font-bold">About Us</h1>
+    </div>
+  
+    <!-- Mission and Vision Section -->
+    <div class="bg-white text-gray-800 py-16 px-4 sm:px-6 lg:px-16">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <p class="text-base md:text-lg text-center leading-relaxed">
+          TripeF Global Ltd. is committed to making safe, sustainable water solutions accessible to every home, school, and business in Nigeria.
+        </p>
+  
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">Our Mission</h2>
+          <p class="text-base md:text-lg leading-relaxed text-center">
+            Our mission is simple yet urgent: to make clean, safe water accessible to every Nigerian while tackling the environmental crisis caused by plastic pollution. By reducing reliance on packaged water, we help communities hydrate better—safely, affordably, and sustainably.
+          </p>
+        </div>
+  
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">Our Vision</h2>
+          <p class="text-base md:text-lg leading-relaxed text-center">
+            We envision a future where every Nigerian practices sustainable hydration—a lifestyle where pure water is always within reach, free from contaminants, and delivered through eco-friendly systems that support both human and environmental health.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- How We Can Help You Section -->
+<section class="help bg-white text-gray-800 py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-8">How We Can Help You</h2>
+      <ul class="space-y-4 text-lg">
+        <li>1. Need a small in-house solution for drinking water? <strong>Contact TripeF</strong>.</li>
+        <li>2. Need a whole-house water treatment system? <strong>Contact TripeF</strong>.</li>
+        <li>3. Want to eliminate plastic sachet and bottled water in your school? <strong>Contact TripeF</strong>.</li>
+        <li>4. Need a reliable, eco-friendly water supply for your office? <strong>Contact TripeF</strong>.</li>
+        <li>5. Managing an estate and looking for a shared water solution? <strong>Contact TripeF</strong>.</li>
+        <li>6. Want to promote sustainability with refillable hydration stations? <strong>Contact TripeF</strong>.</li>
+      </ul>
+      <br>
+      <a href="mailto:info@tripef.com">Contact Us</a>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-800">Awards & Recognition</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Award 1 -->
+        <a href="https://www.instagram.com/reel/DDHRyqXodM2/?igsh=MXRzZmU4azRkanIycQ==" target="_blank" class="block border p-6 rounded-lg shadow hover:shadow-lg transition duration-300 hover:scale-105">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Winner - Naija SDG Fintech Hackathon</h3>
+          <p class="text-gray-600 text-sm">Awarded by Nigeria Climate Innovation Center for sustainable fintech innovation.</p>
+        </a>
+        
+        <!-- Award 2 -->
+        <a href="https://www.instagram.com/p/C-mMvpailxT/?img_index=2&igsh=MXh1MDRwdnhqNnlhZg==" target="_blank" class="block border p-6 rounded-lg shadow hover:shadow-lg transition duration-300 hover:scale-105">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Winner - Green Business Pitch</h3>
+          <p class="text-gray-600 text-sm">Recognized by Providus Bank for excellence in sustainable business practices.</p>
+        </a>
+        
+        <!-- Award 3 -->
+        <a href="https://www.instagram.com/p/DAGHxg1I4xZ/?igsh=b2lnMWFnajRsODN2" target="_blank" class="block border p-6 rounded-lg shadow hover:shadow-lg transition duration-300 hover:scale-105">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Green Economy Spotlight</h3>
+          <p class="text-gray-600 text-sm">Featured by the Lagos State Office of Climate Change & Circular Economy.</p>
+        </a>
+  
+      </div>
+    </div>
+  </section>
+  
+
+<!-- Partner Logos Slider -->
+<section class="bg-gray-50 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Our Partners & Clients</h2>
+      <div class="swiper partner-swiper">
+        <div class="swiper-wrapper">
+          <!-- Repeat this block for each partner -->
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/Access-bank.png" alt="Company 1" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/NCIC.png" alt="Company 3" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/occe-logo-new-2111.png" alt="Company 3" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/starfield.png" alt="Company 3" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/ASA.png" alt="Company 2" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/BNA.jpg" alt="Company 3" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/GTA.png" alt="Company 3" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/KIA.png" alt="Company 3" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/dangote-logo.png" alt="Company 3" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/Rccg_logo.png" alt="Company 3" class="h-12 md:h-16 object-contain" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="logos/DCLM.png" alt="Company 3" class="h-12 md:h-16 object-contain" />
+          </div>
+          <!-- Add more as needed -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Gallery Slideshow Section -->
+<section class="bg-white py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">TripeF in Action</h2>
+      
+      <!-- Swiper Gallery -->
+      <div class="swiper gallery-swiper relative rounded-lg overflow-hidden">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <img src="Gallery/SDG.jpg" alt="Event 1" class="w-full h-60 object-cover" />
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <img src="Gallery/COMMUNITY-2.jpg" alt="Event 2" class="w-full h-60 object-cover" />
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <img src="Gallery/ASA.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/GSC.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/SDG-2.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/SDG-1.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/COMMUNITY-1.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/COMMUNITY.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/Bam.JPG" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/ADV-1.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/ADV-3.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/ADV-4.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/ADV.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/ASA-1.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/ASA-3.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/NCIC.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/GSC.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Gallery/SDG-3.jpg" alt="Event 3" class="w-full h-60 object-cover" />
+          </div>
+          <!-- Add more slides as needed -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- The Team -->  
+
+<section class="py-16 bg-gray-100">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-800">Meet Our Management Team</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+      <!-- Chairman -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+        <img src="team/chairman.jpg" alt="Chairman" class="w-32 h-32 object-cover rounded-lg mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-blue-700">Olutoyin O.E</h3>
+        <h4 class="text-xl/2 font-semibold text-gray-500">Chairman</h4>
+        <!-- <p class="text-black-500 mt-2">Leads our vision and strategic direction.</p> -->
+      </div>
+
+      <!-- Admin Executive -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+        <img src="team/admin-executive.jpg" alt="Admin Executive" class="w-32 h-32 object-cover rounded-lg mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-blue-700">Oluwatobi F.O</h3>
+        <h4 class="text-xl/2 font-semibold text-gray-500">Admin Executive</h4>
+        <!-- <p class="text-black-500 mt-2">Leads our vision and strategic direction.</p> -->
+      </div>
+
+      <!-- Business Operations Manager -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+        <img src="team/bam.jpg" alt="Business Operations Manager" class="w-32 h-32 object-cover rounded-lg mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-blue-700">Victoria O.A</h3>
+        <h4 class="text-xl/2 font-semibold text-gray-500">Business Operations</h4>
+        <!-- <p class="text-black-500 mt-2">Leads our vision and strategic direction.</p> -->
+      </div>
+
+      <!-- Social Media Manager -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+        <img src="team/social-media-manager.jpg" alt="Social Media Manager" class="w-32 h-32 object-cover rounded-lg mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-blue-700">Lisa O.</h3>
+        <h4 class="text-xl/2 font-semibold text-gray-500">Social Media Manager</h4>
+        <!-- <p class="text-black-500 mt-2">Builds online presence and community engagement.</p> -->
+      </div>
+
+      <!-- Chief  Strategist -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+        <img src="team/Strategy-Lead.jpg" alt="Chief Strategist" class="w-32 h-32 object-cover rounded-lg mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-blue-700">Faithful O.A</h3>
+        <h4 class="text-xl/2 font-semibold text-gray-500">Strategy Lead</h4>
+        <!-- <p class="text-black-500 mt-2">Leads Strategic Operations for TripeF.</p> -->
+      </div>
+
+      <!-- Product Manager -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+        <img src="team/product-manager.jpg" alt="Product Manager" class="w-32 h-32 object-cover rounded-lg mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-blue-700">Oluwaseun F.O</h3>
+        <h4 class="text-xl/2 font-semibold text-gray-500">Product Manager</h4>
+        <!-- <p class="text-black-500 mt-2">Oversees product design, development, and innovation.</p> -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+ <!-- Footer Section -->
+<footer class="bg-[#004aad] text-white px-4 py-12 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-wrap gap-8 justify-between">
+      <div class="flex-1 min-w-[250px]">
+        <h3 class="text-xl mb-4 font-semibold"><img src="web-images/transparent logo (1).png" style="max-width: 120px;"></h3>
+        <p class="leading-relaxed">Providing safe, sustainable water solutions to homes, schools, and businesses across Nigeria.</p>
+      </div>
+      <div class="flex-1 min-w-[150px]">
+        <h4 class="text-lg mb-4 font-medium">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="text-white hover:underline">About Us</a></li>
+          <li><a href="services.html" class="text-white hover:underline">Services</a></li>
+          <li><a href="#contact" class="text-white hover:underline">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="flex-1 min-w-[200px]">
+        <h4 class="text-lg mb-4 font-medium">Contact</h4>
+        <p>Email: <a href="mailto:info@tripef.com" class="text-white hover:underline">info@tripef.com</a></p>
+        <p>Phone: <a href="tel:+2349053729450" class="text-white hover:underline">+234 905 372 9450</a></p>
+        <div class="mt-4 flex gap-4">
+          <a href="https://www.facebook.com/share/1AjsHxfCvC/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/tripef_h2o/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-300"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com/Tripef_Global" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300"><i class="fab fa-x"></i></a>
+          <a href="https://www.linkedin.com/company/tripef-global-ltd/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-100"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8 text-sm text-white">
+      &copy; 2025 TripeF Global Ltd. All rights reserved.
+    </div>
+  </footer>
+
+  
+
+
+
+
+
+
+
+
+
+
+  <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  const swiper = new Swiper(".partner-swiper", {
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 2,
+    spaceBetween: 20,
+    breakpoints: {
+      640: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 5,
+      },
+    },
+  });
+  const gallerySwiper = new Swiper('.gallery-swiper', {
+    effect: 'fade',
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    fadeEffect: {
+      crossFade: true,
+    },
+  });
+
+
+</script>
+
+ 
+</body>
+
+</html>
