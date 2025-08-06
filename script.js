@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next';
 const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('nav');
 
@@ -15,5 +14,3 @@ const toggle = document.getElementById('menu-toggle');
       index = (index + 1) % total;
       slides.style.transform = `translateX(-${index * 100}vw)`;
     }, 7000);
-
-            <Analytics />
