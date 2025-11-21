@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>TripeF - Product Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ⭐ META PIXEL CODE HERE -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1561173758566681');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1561173758566681&ev=PageView&noscript=1"/>
+  </noscript>
+  
+  <style>
+    /* Hamburger menu - hidden on desktop */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background-color: #000;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
+
+/* Mobile nav - hidden by default */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* show hamburger */
+  }
+
+  nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  #nav-close {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #004aad;
+  }
+}
+
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- Header -->
+ <header>
+  <a href="index.html" class="logo">
+    <img src="web-images/Tripef-logo.png" style="max-width: 70px;" />
+  </a>
+
+  <!-- Hamburger -->
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <!-- Close button for mobile -->
+    <div id="nav-close" class="absolute top-6 right-6 text-3xl cursor-pointer">&times;</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- Floating Cart (always visible) -->
+<a href="cart.html" class="floating-cart">
+  🛒
+  <span id="cart-count">0</span>
+</a>
+  </header>
+
+  <!-- Product Section -->
+  <section class="pt-32 pb-16 px-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div>
+        <img src="" alt="Product Image" class="rounded-lg shadow-lg w-full object-cover" id="product-image">
+      </div>
+      <div>
+        <h1 class="text-4xl font-bold text-blue-900 mb-4" id="product-name">Product Name</h1>
+        <p class="text-lg mb-4 text-gray-700" id="product-description">Product Description</p>
+<h2 class="text-2xl font-semibold text-blue-900 mb-3">Key Features</h2>
+<ul class="list-disc list-inside mb-6 text-gray-700 space-y-2" id="product-features"></ul>
+        <p class="text-2xl font-bold text-blue-800 mb-6" id="product-price">₦0</p>
+
+        <form id="addToCartForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold mb-1">Quantity</label>
+            <input type="number" min="1" value="1" id="quantity" class="border rounded-lg p-2 w-24 text-center">
+          </div>
+          <button type="submit" class="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition">Add to Cart</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#004aad] text-white px-4 py-12 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-wrap gap-8 justify-between">
+      <div class="flex-1 min-w-[250px]">
+        <h3 class="text-xl mb-4 font-semibold"><img src="web-images/transparent logo (1).png" style="max-width: 120px;"></h3>
+        <p class="leading-relaxed">Providing safe, sustainable water solutions to homes, schools, and businesses across Nigeria.</p>
+      </div>
+      <div class="flex-1 min-w-[150px]">
+        <h4 class="text-lg mb-4 font-medium">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="text-white hover:underline">About Us</a></li>
+          <li><a href="services.html" class="text-white hover:underline">Services</a></li>
+          <li><a href="contact.html" class="text-white hover:underline">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="flex-1 min-w-[200px]">
+        <h4 class="text-lg mb-4 font-medium">Contact</h4>
+        <p>Email: <a href="mailto:info@tripef.com" class="text-white hover:underline">info@tripef.com</a></p>
+        <p>Phone: <a href="tel:+2349053729450" class="text-white hover:underline">+234 905 372 9450</a></p>
+      </div>
+    </div>
+    <div class="text-center mt-8 text-sm text-white">
+      &copy; 2025 TripeF Global Ltd. All rights reserved.
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  
+
+  <script>
+    const productsData = {
+      TouchAlkaline: {
+        name: "TripeF Products (Touch Alkaline)",
+        price: 607000,
+        image: "products/model1.png",
+        description: "Experience next-level water safety and style for your home or office. This smart system connects to your existing water source and delivers pure alkaline water on demand, using advanced RO + UV + UF purification technology. With this system, you’ll enjoy reliable access to healthy water, drastic savings on bottled or dispenser refills, and the peace of mind that comes with premium quality.",
+        features: 
+        [
+          "7-stage purification process designed for high TDS and complex water sources.", 
+          "Storage tank capacity ~8–8.5 L; purification capacity up to ~15 L/hour.", 
+          "Wall-mounted, sleek design made with food-grade ABS plastic — fits modern interiors.", 
+          "High durability and support — for homes and offices that expect more.",
+          
+        ]
+      },
+      EnvyAlkaline: {
+        name: "TripeF Products (Envy Alkaline)",
+        price: 557000,
+        image: "products/model2.png",
+        description: "Enjoy perfectly pure, healthy alkaline water in your home or office instantly. The Livpure Envy Alkaline Hydration System is a 7-stage SON-verified purification system that removes all impurities, heavy metals, and contaminants from your water, delivering pure alkaline water for drinking and cooking directly from your tap",
+        features: 
+        [
+          "7-Stage Purification: Removes sediments, chlorine, bacteria, and harmful metals while enhancing alkalinity for better health.",
+         "High Purification Capacity: Up to 15 L/hour; suitable for homes and offices.", 
+         "8 L Storage Tank: Automatically refills when water is drawn.", 
+         "Pure Alkaline Water: Promotes better hydration and health compared to dispenser or bottled water.",
+         "Low-Maintenance Design: Easy servicing every 6–18 months.",
+         "SON-Verified Quality for guaranteed safety and performance."
+        ]
+      },
+      BoltAlkaline: {
+        name: "TripeF Products (Bolt Alkaline)",
+        price: 457000,
+        image: "products/model3.png",
+        description: "The Livpure Bolt Alkaline, is a compact 5-stage alkaline water purifier built for everyday home and office use. It connects to your existing water source and delivers clean, healthy alkaline water for drinking and cooking with minimal fuss.With the Bolt Alkaline installed, you’ll stop buying dispenser refills and bottled water. Enjoy on-demand alkaline water that’s healthier, tastier, and more convenient.",
+        features: [
+          "Storage tank: ~8 L (provides instant access when needed)", 
+          "Design: sleek wall-mount/profile suitable for modern interiors.", 
+          "Service & warranty: 1-year warranty; recommended service every 6–18 months.", 
+          "SON-verified performance (where applicable), and after-sales support."
+        ]
+      },
+      GlitzMineral: {
+        name: "Tripef Products (Glitz Mineral)",
+        price: 405000,
+        image: "products/model4.png",
+        description: "Elevate your home’s water experience with a premium purifier that blends style, health, and performance. This wall-mounted system delivers pure, mineral-rich alkaline water for drinking and cooking—no bottled water or refills needed.",
+        features: 
+        [
+          "7-Stage Purification: Combines sediment filter → activated carbon → RO membrane → UF membrane → mineraliser cartridge → silver-impregnated post-carbon → final polishing to ensure contaminants are removed and minerals restored.", 
+          "High TDS Handling: Suitable for water sources with total dissolved solids (TDS) up to ~2,000 ppm—ideal for challenging urban supply.", 
+          "7 L Storage Tank: Ensures immediate access to purified water when you need it.", 
+          "Sleek Design: Modern, compact dimensions (~295×260×505 mm) and food-grade ABS construction for both durability and aesthetic appeal.",
+          "Health & Taste Enhanced: Mineral-cartridge adds essential minerals and improves taste—meaning water that’s healthier and more enjoyable."
+        ]
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const modelKey = urlParams.get("model");
+      const product = productsData[modelKey];
+
+      if (!product) {
+        alert("Product not found!");
+        window.location.href = "products.html";
+        return;
+      }
+
+      // Populate product
+      document.getElementById("product-name").textContent = product.name;
+      document.getElementById("product-description").textContent = product.description;
+      document.getElementById("product-image").src = product.image;
+      document.getElementById("product-image").alt = product.name;
+      document.getElementById("product-price").textContent = `₦${product.price.toLocaleString()}`;
+
+      const featuresList = document.getElementById("product-features");
+      featuresList.innerHTML = "";
+      product.features.forEach(f => {
+        const li = document.createElement("li");
+        li.textContent = f;
+        featuresList.appendChild(li);
+      });
+
+
+
+      // Cart Handling
+  const cartCount = document.getElementById("cart-count");
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function updateCartCount() {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.textContent = totalItems;
+  }
+
+  updateCartCount(); // update count on page load
+
+  const addToCartForm = document.getElementById("addToCartForm");
+   addToCartForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const qty = parseInt(document.getElementById("quantity").value);
+    const productToAdd = { ...product, quantity: qty };
+
+    const existing = cart.find(item => item.name === productToAdd.name);
+    if (existing) {
+      existing.quantity += qty;
+    } else {
+      cart.push(productToAdd);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert(`${qty} unit(s) of ${productToAdd.name} added to cart.`);
+
+    // 👇⭐ Facebook Pixel AddToCart Event
+    fbq('track', 'AddToCart', {
+      content_name: productToAdd.name,
+      value: productToAdd.price,
+      currency: 'NGN'
+    });
+});
+
+});
+  </script>
+
+  <script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav');
+  const closeBtn = document.getElementById('nav-close');
+
+  // Open mobile menu
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+
+  // Close mobile menu
+  closeBtn.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+
+  // Optional: close nav if user clicks outside menu (mobile)
+  window.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+      nav.classList.remove('active');
+    }
+  });
+</script>
+
+</body>
+</html>

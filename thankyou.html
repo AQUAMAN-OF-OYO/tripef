@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripeF - Order Confirmed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .container { max-width: 600px; margin: 0 auto; padding: 4rem 2rem; text-align: center; }
+    .success-icon { font-size: 4rem; color: #22c55e; margin-bottom: 1rem; }
+    .countdown { font-size: 1.25rem; font-weight: 600; color: #004aad; }
+  </style>
+
+  <!-- ========================= -->
+  <!-- 📌 META PIXEL BASE CODE   -->
+  <!-- ========================= -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1561173758566681');
+    fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1561173758566681&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- ========================= -->
+  <!-- END META PIXEL CODE       -->
+  <!-- ========================= -->
+
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+  <div class="container">
+    <div class="success-icon">✔️</div>
+    <h1 class="text-3xl font-bold text-blue-900 mb-4">Thank you for your order!</h1>
+    <p class="text-lg text-gray-700 mb-2">Your payment has been successfully processed.</p>
+    <p class="text-gray-700 mb-4">A confirmation email with your order details has been sent to you.</p>
+    <p class="text-gray-700 mb-6">We will start processing your order and ship it to the address you provided.</p>
+    <p class="countdown">Redirecting to homepage in <span id="count">10</span> seconds...</p>
+  </div>
+
+  <!-- ========================= -->
+  <!-- 📌 FIRE PURCHASE EVENT   -->
+  <!-- ========================= -->
+  <script>
+    // ⬇️ Get purchase amount from localStorage (if stored)
+    const orderTotal = localStorage.getItem("order_total") || 0;
+
+    // ⬇️ Optional: Get cart items for advanced Purchase tracking
+    const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    // 📌 Trigger Purchase event
+    fbq('track', 'Purchase', {
+      value: orderTotal,
+      currency: 'NGN',
+      contents: cartItems.map(item => ({
+        id: item.id || item.name,
+        quantity: item.quantity,
+        item_price: item.price
+      })),
+      content_type: 'product'
+    });
+
+    // 🔥 Clear cart after tracking purchase
+    localStorage.removeItem("cart");
+    localStorage.removeItem("order_total");
+  </script>
+
+  <!-- ========================= -->
+  <!-- REDIRECT COUNTDOWN        -->
+  <!-- ========================= -->
+  <script>
+    let count = 10;
+    const countElement = document.getElementById('count');
+
+    const countdown = setInterval(() => {
+      count--;
+      countElement.textContent = count;
+      if (count <= 0) {
+        clearInterval(countdown);
+        window.location.href = 'index.html';
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

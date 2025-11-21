@@ -1,96 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TripeF - Sustainable Hydration</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TripeF - Sustainable Hydration</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-</head>
+  <body>
+    <header class="flex items-center justify-between px-4 py-3 bg-white shadow-md relative">
+  <!-- Logo -->
+  <a href="index.html" class="logo">
 
-<body>
-  <header>
-    <div class="logo"><img src="web-images/Tripef-logo.png" style="max-width: 70px;"></div>
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="nav">
-      <ul>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-<section class="hero-section">
-    <div class="slider">
+    <img src="web-images/Tripef-logo.png" style="max-width: 70px" />
+  </div>
+
+ <!-- Floating Cart Button -->
+<a
+  href="cart.html"
+  class="fixed bottom-6 right-6 bg-[#fff] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg z-50"
+  style="font-size: 28px; position: fixed;"
+>
+  🛒
+  <span
+    id="cart-count"
+    class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 rounded-full"
+  >
+    0
+  </span>
+</a>
+
+
+  <!-- Hamburger -->
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav id="nav">
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+    <section class="hero-section">
+      <div class="slider">
         <div class="slides" id="slides">
           <div class="slide slide1 hero">
             <div class="hero-content">
-              <h1><span>- We Are -</span> <br>
-                Nigeria's Leading Sustainable Hydration Provider</h1>
-              <p>With Over 10 years of providing reliable hydration experience</p>
+              <h1>
+                <span>- We Are -</span> <br />
+                Nigeria's Leading Sustainable Hydration Provider
+              </h1>
+              <p>
+                With Over 10 years of providing reliable hydration experience
+              </p>
               <a href="contact.html">Contact Us</a>
             </div>
           </div>
           <div class="slide slide2 hero">
             <div class="hero-content">
-              <h1><span>- With Us -</span> <br>
-                You never have to rely on packaged water for hydration anymore</h1>
-              <p>We Save homes and businesses up to 80% in annual water expense.</p>
+              <h1>
+                <span>- With Us -</span> <br />
+                You never have to rely on packaged water for hydration anymore
+              </h1>
+              <p>
+                We Save homes and businesses up to 80% in annual water expense.
+              </p>
               <a href="contact.html">Contact Us</a>
             </div>
           </div>
           <div class="slide slide3 hero">
             <div class="hero-content">
-              <h1><span>- We Offer -</span> <br>
-                The best water solutions for homes and offices</h1>
-              <p>From domestic water purifiers to ensure safe drinking water to extensive water treatment facilities for homes and offices.</p>
+              <h1>
+                <span>- We Offer -</span> <br />
+                The best water solutions for homes and offices
+              </h1>
+              <p>
+                From domestic water purifiers to ensure safe drinking water to
+                extensive water treatment facilities for homes and offices.
+              </p>
               <a href="contact.html">Contact Us</a>
             </div>
           </div>
         </div>
-    </div>
-    
-</section>
+      </div>
+    </section>
 
-<!-- What We Do Section -->
+    <!-- What We Do Section -->
 
-<section class="core">
-    <section class="core-section">
+    <section class="core">
+      <section class="core-section">
         <h2 class="core-title">Our Core Pillars</h2>
         <div class="core-container">
           <div class="core-box">
             <i class="fas fa-heartbeat"></i>
             <h3>Health</h3>
-            <p>We deliver safe, purified water systems that improve your health and protect against waterborne diseases.</p>
+            <p>
+              We deliver safe, purified water systems that improve your health
+              and protect against waterborne diseases.
+            </p>
           </div>
           <div class="core-box">
             <i class="fas fa-wallet"></i>
             <h3>Finance</h3>
-            <p>Our solutions save homes and businesses up to 85% annually on water purchases and logistics.</p>
+            <p>
+              Our solutions save homes and businesses up to 85% annually on
+              water purchases and logistics.
+            </p>
           </div>
           <div class="core-box">
             <i class="fas fa-leaf"></i>
             <h3>Environment</h3>
-            <p>We reduce plastic waste and carbon emissions by eliminating reliance on packaged water.</p>
+            <p>
+              We reduce plastic waste and carbon emissions by eliminating
+              reliance on packaged water.
+            </p>
           </div>
         </div>
       </section>
-</section>
+    </section>
 
-<section class="core">
-    <section class="core-section">
+    <section class="core">
+      <section class="core-section">
         <h2 class="core-title">What We Do</h2>
         <div class="core-container">
-            <p>We offer water solutions for homes, estates, and businesses—installing domestic purifiers to provide pure alkaline drinking water on demand while cutting costs on dispenser refills. We also help estates treat water for everyday domestic needs—cooking, washing, bathing, and more—by eliminating harmful impurities.</p>
+          <p>
+            We offer water solutions for homes, estates, and
+            businesses—installing domestic purifiers to provide pure alkaline
+            drinking water on demand while cutting costs on dispenser refills.
+            We also help estates treat water for everyday domestic
+            needs—cooking, washing, bathing, and more—by eliminating harmful
+            impurities.
+          </p>
           <div class="core-box">
             <i class="fa fa-home" aria-hidden="true"></i>
             <h3>1K+</h3>
@@ -119,124 +177,255 @@
           </div>
         </div>
       </section>
-</section>
+    </section>
 
-<!-- Testimonial Section -->
-<section class="testimonials">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h2>What People Are Saying</h2>
-      
-      <div class="testimonials-container">
-        <div>
-          <p>“We’ve completely eliminated the need for dispenser deliveries in our office. My staffs now drink from TripeF Hydration Systems daily.”</p>
-          <small style="color: #4a5568; display: block; margin-top: 0.5rem;">– M.D Realty Point, Ogudu GRA.</small>
-        </div>
-  
-        <div style="align-self: flex-end; background-color: #e6fffa; border-radius: 1.5rem 1.5rem 0 1.5rem;">
-          <p>“TripeF helped us save over ₦1M every term from dispenser water supply. No buying dispensers at our School anymore”</p>
-          <small style="color: #4a5568; display: block; margin-top: 0.5rem;">– Admin Head, British Nigerian Academy.</small>
-        </div>
-  
-        <div>
-          <p>“I tested the water from TripeF Hydration System at LASWARCO, and I was very happy to learn that the water is actually pure and safe for drinking, my house water has been terrible for a long time now.”</p>
-          <small style="color: #4a5568; display: block; margin-top: 0.5rem;">– A Happy Customer, Lekki Lagos.</small>
-        </div>
-      </div>
-    </div>
-</section>
-<!-- Videos -->
+    <!-- Testimonial Section -->
+    <section class="testimonials">
+      <div style="max-width: 900px; margin: 0 auto">
+        <h2>What People Are Saying</h2>
 
-<section class="bg-white py-16 flex justify-center items-center h-full">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">Videos</h2>
+        <div class="testimonials-container">
+          <div>
+            <p>
+              “We’ve completely eliminated the need for dispenser deliveries in
+              our office. My staffs now drink from TripeF Hydration Systems
+              daily.”
+            </p>
+            <small style="color: #4a5568; display: block; margin-top: 0.5rem"
+              >– M.D Realty Point, Ogudu GRA.</small
+            >
+          </div>
 
-    <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      
-      <!-- Reel 1 -->
-      <div class="rounded-xl overflow-hidden shadow-md">
-        <blockquote 
-          class="instagram-media" 
-          data-instgrm-permalink="https://www.instagram.com/reel/DGK4BFTsarv/?igsh=MTgzZHRreGFhOHRhag==" 
-          data-instgrm-version="14" 
-          style="background:#FFF; border:0; margin: 0 auto; padding:0;">
-        </blockquote>
-      </div>
+          <div
+            style="
+              align-self: flex-end;
+              background-color: #e6fffa;
+              border-radius: 1.5rem 1.5rem 0 1.5rem;
+            "
+          >
+            <p>
+              “TripeF helped us save over ₦1M every term from dispenser water
+              supply. No buying dispensers at our School anymore”
+            </p>
+            <small style="color: #4a5568; display: block; margin-top: 0.5rem"
+              >– Admin Head, British Nigerian Academy.</small
+            >
+          </div>
 
-      <!-- Reel 2 -->
-      <div class="rounded-xl overflow-hidden shadow-md">
-        <blockquote 
-          class="instagram-media" 
-          data-instgrm-permalink="https://www.instagram.com/reel/DHrSmuus2RC/?igsh=MXFyMzh4NG95NWU1MA==" 
-          data-instgrm-version="14">
-        </blockquote>
-      </div>
-      <!-- Reel 3 -->
-      <div class="rounded-xl overflow-hidden shadow-md">
-        <blockquote 
-          class="instagram-media" 
-          data-instgrm-permalink="https://www.instagram.com/reel/DJjhOW3MCvP/?igsh=ZzgxYW5xNWM0YzJn" 
-          data-instgrm-version="14">
-        </blockquote>
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-
-
-  
- <!-- Footer Section -->
-<footer class="bg-[#004aad] text-white px-4 py-12 mt-8">
-    <div class="max-w-6xl mx-auto flex flex-wrap gap-8 justify-between">
-      <div class="flex-1 min-w-[250px]">
-        <h3 class="text-xl mb-4 font-semibold"><img src="web-images/transparent logo (1).png" style="max-width: 120px;"></h3>
-        <p class="leading-relaxed">Providing safe, sustainable water solutions to homes, schools, and businesses across Nigeria.</p>
-      </div>
-      <div class="flex-1 min-w-[150px]">
-        <h4 class="text-lg mb-4 font-medium">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="about.html" class="text-white hover:underline">About Us</a></li>
-          <li><a href="services.html" class="text-white hover:underline">Services</a></li>
-          <li><a href="#contact" class="text-white hover:underline">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="flex-1 min-w-[200px]">
-        <h4 class="text-lg mb-4 font-medium">Contact</h4>
-        <p>Email: <a href="mailto:info@tripef.com" class="text-white hover:underline">info@tripef.com</a></p>
-        <p>Phone: <a href="tel:+2349053729450" class="text-white hover:underline">+234 905 372 9450</a></p>
-        <div class="mt-4 flex gap-4">
-          <a href="https://www.facebook.com/share/1AjsHxfCvC/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/tripef_h2o/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-300"><i class="fab fa-instagram"></i></a>
-          <a href="https://x.com/Tripef_Global" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300"><i class="fab fa-x"></i></a>
-          <a href="https://www.linkedin.com/company/tripef-global-ltd/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-100"><i class="fab fa-linkedin-in"></i></a>
+          <div>
+            <p>
+              “I tested the water from TripeF Hydration System at LASWARCO, and
+              I was very happy to learn that the water is actually pure and safe
+              for drinking, my house water has been terrible for a long time
+              now.”
+            </p>
+            <small style="color: #4a5568; display: block; margin-top: 0.5rem"
+              >– A Happy Customer, Lekki Lagos.</small
+            >
+          </div>
         </div>
       </div>
-    </div>
-    <div class="text-center mt-8 text-sm text-white">
-      &copy; 2025 TripeF Global Ltd. All rights reserved.
-    </div>
-  </footer>
+    </section>
+    <!-- Videos -->
 
+    <section class="bg-white py-16 flex justify-center items-center h-full">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
+          Videos
+        </h2>
 
+        <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Reel 1 -->
+          <div class="rounded-xl overflow-hidden shadow-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/DGK4BFTsarv/?igsh=MTgzZHRreGFhOHRhag=="
+              data-instgrm-version="14"
+              style="background: #fff; border: 0; margin: 0 auto; padding: 0"
+            ></blockquote>
+          </div>
 
-  
-  <script src="script.js">
+          <!-- Reel 2 -->
+          <div class="rounded-xl overflow-hidden shadow-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/DHrSmuus2RC/?igsh=MXFyMzh4NG95NWU1MA=="
+              data-instgrm-version="14"
+            ></blockquote>
+          </div>
+          <!-- Reel 3 -->
+          <div class="rounded-xl overflow-hidden shadow-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/DJjhOW3MCvP/?igsh=ZzgxYW5xNWM0YzJn"
+              data-instgrm-version="14"
+            ></blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    
-  </script>
-  <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9V3W267R1X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Footer Section -->
+    <footer class="bg-[#004aad] text-white px-4 py-12 mt-8">
+      <div class="max-w-6xl mx-auto flex flex-wrap gap-8 justify-between">
+        <div class="flex-1 min-w-[250px]">
+          <h3 class="text-xl mb-4 font-semibold">
+            <img
+              src="web-images/transparent logo (1).png"
+              style="max-width: 120px"
+            />
+          </h3>
+          <p class="leading-relaxed">
+            Providing safe, sustainable water solutions to homes, schools, and
+            businesses across Nigeria.
+          </p>
+        </div>
+        <div class="flex-1 min-w-[150px]">
+          <h4 class="text-lg mb-4 font-medium">Quick Links</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="about.html" class="text-white hover:underline"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="text-white hover:underline"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="text-white hover:underline"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1 min-w-[200px]">
+          <h4 class="text-lg mb-4 font-medium">Contact</h4>
+          <p>
+            Email:
+            <a href="mailto:info@tripef.com" class="text-white hover:underline"
+              >info@tripef.com</a
+            >
+          </p>
+          <p>
+            Phone:
+            <a href="tel:+2349053729450" class="text-white hover:underline"
+              >+234 905 372 9450</a
+            >
+          </p>
+          <div class="mt-4 flex gap-4">
+            <a
+              href="https://www.facebook.com/share/1AjsHxfCvC/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-blue-200"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/tripef_h2o/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-pink-300"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://x.com/Tripef_Global"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-blue-300"
+              ><i class="fab fa-x"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/tripef-global-ltd/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-blue-100"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-8 text-sm text-white">
+        &copy; 2025 TripeF Global Ltd. All rights reserved.
+      </div>
+    </footer>
 
-  gtag('config', 'G-9V3W267R1X');
+    <script src="script.js"></script>
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-9V3W267R1X"
+    ></script>
+   <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Retrieve cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Get cart count element
+    const cartCount = document.getElementById("cart-count");
+
+    function updateCartCount() {
+      if (!cartCount) return;
+      const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+      cartCount.textContent = totalItems;
+    }
+
+    // Render cart items if container exists
+    const cartItemsContainer = document.getElementById("cart-items");
+
+    function renderCartItems() {
+      if (!cartItemsContainer) return;
+
+      cartItemsContainer.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `<p class="text-center text-gray-600">Your cart is empty.</p>`;
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "flex justify-between items-center border-b py-2";
+        itemDiv.innerHTML = `
+          <div class="flex items-center gap-4">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded" />
+            <div>
+              <p class="font-semibold">${item.name}</p>
+              <p class="text-gray-500">₦${item.price.toLocaleString()}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="remove-item text-red-500 font-bold" data-index="${index}">&times;</button>
+            <span>${item.quantity || 1}</span>
+          </div>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+      });
+
+      document.querySelectorAll(".remove-item").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const idx = e.target.dataset.index;
+          removeCartItem(idx);
+        });
+      });
+    }
+
+    function removeCartItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCartItems();
+      updateCartCount();
+    }
+
+    // Initialize
+    updateCartCount();
+    renderCartItems();
+  });
 </script>
 
-<!-- Load Instagram Embed SDK -->
-<script async src="//www.instagram.com/embed.js"></script>
-</body>
 
+    <!-- Load Instagram Embed SDK -->
+    <script async src="//www.instagram.com/embed.js"></script>
+  </body>
 </html>
