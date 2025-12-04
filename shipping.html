@@ -1,229 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TripeF - Checkout</title>
-
-  <!-- Fonts & Tailwind -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-  <!-- Paystack -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="https://js.paystack.co/v1/inline.js"></script>
 
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1561173758566681');
+    fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1561173758566681&ev=PageView&noscript=1"/>
+  </noscript>
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-    nav.active {
-      display: flex !important;
-      position: fixed;
-      top: 0; left: 0;
-      height: 100vh; width: 100%;
-      background: rgba(255, 255, 255, 0.97);
-      flex-direction: column;
-      justify-content: center;
-      z-index: 50;
-    }
-    .menu-toggle { display: flex; }
-    @media (min-width: 768px) { .menu-toggle { display: none; } }
+    /* Mobile menu overlay */
+nav.active {
+  display: flex !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 40;
+}
+
+nav.active ul {
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+/* Hamburger toggle hidden on desktop */
+.menu-toggle {
+  display: flex;
+}
+@media(min-width:768px){
+  .menu-toggle { display: none; }
+}
+
+nav button#closeNav {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 50;
+  color: #000;
+}
+
   </style>
 </head>
 
 <body class="text-gray-800">
-
-<!-- HEADER -->
-<header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4 flex justify-between items-center">
-  <a href="index.html"><img src="web-images/Tripef-logo.png" class="w-16"></a>
-
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4 flex justify-between items-center">
+  <a href="index.html" class="logo"><img src="web-images/Tripef-logo.png" style="max-width: 70px;"></div>
+  
   <!-- Hamburger -->
   <div class="menu-toggle flex flex-col cursor-pointer md:hidden">
-    <span class="w-7 h-0.5 bg-black mb-1"></span>
-    <span class="w-7 h-0.5 bg-black mb-1"></span>
-    <span class="w-7 h-0.5 bg-black"></span>
+    <span class="w-6 h-0.5 bg-black mb-1"></span>
+    <span class="w-6 h-0.5 bg-black mb-1"></span>
+    <span class="w-6 h-0.5 bg-black"></span>
   </div>
 
-  <!-- Navigation -->
-  <nav class="hidden md:flex">
-    <button id="closeNav" class="md:hidden absolute top-4 right-4 text-3xl">&times;</button>
-    <ul class="flex gap-6 font-semibold">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html" class="text-blue-700">Products</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+    <nav class="hidden md:flex relative">
+      <!-- Close button for mobile -->
+      <button id="closeNav" class="absolute top-4 right-4 text-2xl md:hidden">&times;</button>
+
+      <ul class="flex gap-6 font-semibold">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="text-blue-700">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
 </header>
 
-<!-- CHECKOUT CARD -->
-<div class="pt-28 pb-10 px-4 flex justify-center">
-  <div class="bg-white rounded-2xl shadow-lg w-full max-w-2xl p-8">
 
-    <h1 class="text-2xl font-bold text-blue-900 mb-6 text-center">Checkout</h1>
+  <!-- Checkout Card -->
+  <div class="pt-28 pb-10 px-4 flex justify-center">
+    <div class="bg-white rounded-2xl shadow-lg w-full max-w-2xl p-8">
+      <h1 class="text-2xl font-bold text-blue-900 mb-6 text-center">Checkout</h1>
 
-    <!-- SHIPPING FORM -->
-    <section class="mb-8">
-      <h2 class="text-lg font-semibold text-blue-800 mb-4 border-b pb-2">Shipping Information</h2>
+      <!-- Shipping Section -->
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-blue-800 mb-4 border-b pb-2">Shipping Information</h2>
+        <form action="https://formspree.io/f/xanrbnno" method="POST" id="shippingForm" class="grid grid-cols-1 gap-4">
+          <input type="text" name="fullname" id="fullName" placeholder="Full Name" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="email" name="email" id="email" placeholder="Email Address" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="text" name="address" id="address" placeholder="Street Address" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <div class="grid grid-cols-2 gap-3">
+            <input type="text" name="city" id="city" placeholder="City" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" name="state" id="state" placeholder="State" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <input type="text" name="postalCode" id="postalCode" placeholder="Postal Code" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
-      <form id="shippingForm" class="grid gap-4">
-        <input id="fullName" placeholder="Full Name" required class="input" />
-        <input id="email" type="email" placeholder="Email Address" required class="input" />
-        <input id="phone" type="tel" placeholder="Phone Number" required class="input" />
-        <input id="address" placeholder="Street Address" required class="input" />
-        
-        <div class="grid grid-cols-2 gap-3">
-          <input id="city" placeholder="City" required class="input" />
-          <input id="state" placeholder="State" required class="input" />
+          <input type="hidden" name="cartItems" id="cartItemsField">
+          <input type="hidden" name="totalAmount" id="totalAmountField">
+        </form>
+      </section>
+
+      <!-- Cart Items Section -->
+      <section>
+        <h2 class="text-lg font-semibold text-blue-800 mb-3 border-b pb-2">Your Order</h2>
+        <div id="cart-items" class="space-y-2 mb-4 text-gray-700"></div>
+        <div class="flex justify-between font-semibold text-lg border-t pt-3">
+          <span>Total:</span>
+          <span>₦<span id="total">0</span></span>
         </div>
+      </section>
 
-        <input id="postalCode" placeholder="Postal Code" required class="input" />
-      </form>
-
-      <style>
-        .input {
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          padding: 12px;
-        }
-      </style>
-    </section>
-
-    <!-- CART ITEMS -->
-    <section>
-      <h2 class="text-lg font-semibold text-blue-800 mb-3 border-b pb-2">Your Order</h2>
-      <div id="cart-items" class="space-y-2 mb-4 text-gray-700"></div>
-
-      <div class="flex justify-between font-semibold text-lg border-t pt-3">
-        <span>Total:</span>
-        <span>₦<span id="total">0</span></span>
+      <!-- Pay Button -->
+      <div class="mt-8 text-center">
+        <button id="payButton" class="w-full bg-blue-700 text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition">
+          Pay Securely with Paystack
+        </button>
       </div>
-    </section>
-
-    <!-- BUTTON -->
-    <div class="mt-8 text-center">
-      <button id="continueBtn" class="w-full bg-blue-700 text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition">
-        Continue
-      </button>
-
-      <button id="payButton" class="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition mt-4 hidden">
-        Pay Securely with Paystack
-      </button>
-    </div>
-
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="bg-[#004aad] text-white px-4 py-12 mt-8">
-  <div class="max-w-6xl mx-auto flex flex-wrap gap-8 justify-between">
-    <div class="flex-1 min-w-[250px]">
-      <img src="web-images/transparent logo (1).png" class="w-32 mb-4">
-      <p>Providing safe, sustainable water solutions across Nigeria.</p>
-    </div>
-
-    <div class="flex-1">
-      <h4 class="text-lg font-medium mb-4">Quick Links</h4>
-      <ul class="space-y-2">
-        <li><a href="about.html" class="hover:underline">About Us</a></li>
-        <li><a href="services.html" class="hover:underline">Services</a></li>
-        <li><a href="contact.html" class="hover:underline">Contact Us</a></li>
-      </ul>
-    </div>
-
-    <div class="flex-1">
-      <h4 class="text-lg font-medium mb-4">Contact</h4>
-      <p>Email: info@tripef.com</p>
-      <p>Phone: +234 905 372 9450</p>
     </div>
   </div>
-  <p class="text-center mt-8 text-sm">&copy; 2025 TripeF Global Ltd.</p>
-</footer>
 
-<!-- SCRIPT -->
+  <footer class="bg-[#004aad] text-white px-4 py-12 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-wrap gap-8 justify-between">
+      <div class="flex-1 min-w-[250px]">
+        <h3 class="text-xl mb-4 font-semibold"><img src="web-images/transparent logo (1).png" style="max-width: 120px;"></h3>
+        <p class="leading-relaxed">Providing safe, sustainable water solutions to homes, schools, and businesses across Nigeria.</p>
+      </div>
+      <div class="flex-1 min-w-[150px]">
+        <h4 class="text-lg mb-4 font-medium">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="text-white hover:underline">About Us</a></li>
+          <li><a href="#testimonials" class="text-white hover:underline">Services</a></li>
+          <li><a href="#contact" class="text-white hover:underline">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="flex-1 min-w-[200px]">
+        <h4 class="text-lg mb-4 font-medium">Contact</h4>
+        <p>Email: <a href="mailto:info@tripef.com" class="text-white hover:underline">info@tripef.com</a></p>
+        <p>Phone: <a href="tel:+2349053729450" class="text-white hover:underline">+234 905 372 9450</a></p>
+        <div class="mt-4 flex gap-4">
+          <a href="https://www.facebook.com/share/1AjsHxfCvC/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/tripef_h2o/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-300"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com/Tripef_Global" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300"><i class="fab fa-x"></i></a>
+          <a href="https://www.linkedin.com/company/tripef-global-ltd/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-100"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8 text-sm text-white">
+      &copy; 2025 TripeF Global Ltd. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+  emailjs.init("n3ddfgCnwmiNgU3rc");
+
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItemsDiv = document.getElementById("cart-items");
+  const totalSpan = document.getElementById("total");
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartItemsDiv.innerHTML =
+      "<p class='text-center text-gray-500'>Your cart is empty.</p>";
+    document.getElementById("payButton").disabled = true;
+    document
+      .getElementById("payButton")
+      .classList.add("opacity-50", "cursor-not-allowed");
+  } else {
+    cart.forEach((item) => {
+      const div = document.createElement("div");
+      div.className = "flex justify-between border-b pb-2";
+      div.innerHTML = `
+        <span>${item.name} × ${item.quantity}</span>
+        <span>₦${(item.price * item.quantity).toLocaleString()}</span>
+      `;
+      cartItemsDiv.appendChild(div);
+      total += item.price * item.quantity;
+    });
+    totalSpan.textContent = total.toLocaleString();
+  }
+
+  // Format cart items for email
+  const itemsText = cart
+    .map(
+      (item) =>
+        `${item.name} × ${item.quantity} — ₦${(item.price * item.quantity).toLocaleString()}`
+    )
+    .join("\n");
+
+  
+</script>
+
 <script>
-emailjs.init("n3ddfgCnwmiNgU3rc");
+document.getElementById("payButton").addEventListener("click", (e) => {
+  e.preventDefault(); 
 
-// ---------------- CART --------------------
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
-const cartItemsDiv = document.getElementById("cart-items");
-const totalSpan = document.getElementById("total");
-let total = 0;
-
-// Load cart
-if (cart.length === 0) {
-  cartItemsDiv.innerHTML = "<p class='text-center text-gray-500'>Your cart is empty.</p>";
-  document.getElementById("continueBtn").disabled = true;
-} else {
-  cart.forEach(item => {
-    const line = document.createElement("div");
-    line.className = "flex justify-between border-b pb-2";
-    line.innerHTML = `
-      <span>${item.name} × ${item.quantity}</span>
-      <span>₦${(item.price * item.quantity).toLocaleString()}</span>
-    `;
-    cartItemsDiv.appendChild(line);
-    total += item.price * item.quantity;
+  fbq('track', 'InitiateCheckout', {
+    value: total,
+    currency: 'NGN'
   });
-  totalSpan.textContent = total.toLocaleString();
-}
 
-// ---------------- GOOGLE SHEETS SAVE --------------------
-document.getElementById("continueBtn").addEventListener("click", async () => {
   const form = document.getElementById("shippingForm");
   if (!form.reportValidity()) return;
 
-  const data = {
-    fullName: fullName.value,
-    email: email.value,
-    phone: phone.value,
-    address: address.value,
-    city: city.value,
-    state: state.value,
-    postalCode: postalCode.value,
-    total,
-    cart: JSON.stringify(cart),
-    timestamp: new Date().toLocaleString()
+  // Format hidden fields
+  const cartItemsFormatted = cart
+    .map(item => `${item.name} x ${item.quantity} (₦${item.price * item.quantity})`)
+    .join(", ");
+
+  document.getElementById("cartItemsField").value = cartItemsFormatted;
+  document.getElementById("totalAmountField").value = total;
+
+  const details = {
+    fullName: document.getElementById("fullName").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    address: document.getElementById("address").value,
+    city: document.getElementById("city").value,
+    state: document.getElementById("state").value,
+    postalCode: document.getElementById("postalCode").value,
   };
 
-  // Send to Google Sheet
-  await fetch("https://script.google.com/macros/s/AKfycbwZeC4ag5dMye6_oD_BaS9cksWv4mCL-EbIqIJ8G38ZbWTGnGQcy8DcQoJB7hWphcFU/exec", {
-    method: "POST",
-    body: JSON.stringify(data)
-  });
-
-  alert("Shipping details saved!");
-  document.getElementById("payButton").classList.remove("hidden");
-});
-
-// ---------------- PAYSTACK --------------------
-document.getElementById("payButton").addEventListener("click", () => {
+  // PAYSTACK SETUP
   const handler = PaystackPop.setup({
     key: "pk_test_610876e252a4552979fbc4bccd661e9014e4b140",
-    email: email.value,
+    email: details.email,
     amount: total * 100,
+    currency: "NGN",
 
-    callback: function (response) {
-      alert("Payment Successful! Ref: " + response.reference);
+    callback: function(response) {
+  alert(`Payment successful! Reference: ${response.reference}`);
+
+  fbq('track', 'Purchase', {
+    value: total,
+    currency: 'NGN',
+    contents: cart.map(item => ({
+      id: item.id || item.name,
+      quantity: item.quantity,
+      item_price: item.price
+    })),
+    content_type: 'product'
+  });
+
+  // Submit form using AJAX to ensure it delivers BEFORE redirect
+  const formData = new FormData(form);
+
+  fetch("https://formspree.io/f/xanrbnno", {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "application/json" }
+  })
+  .then(() => {
       localStorage.removeItem("cart");
       window.location.href = "thankyou.html";
+  })
+  .catch((error) => {
+      alert("Form submission failed. Please contact support.");
+      console.error("Formspree error:", error);
+  });
+},
+    onClose: function() {
+      alert("Payment window closed.");
     },
-
-    onClose: () => alert("Payment window closed.")
   });
 
   handler.openIframe();
 });
+</script>
 
-// ---------------- NAV MENU --------------------
-document.querySelector('.menu-toggle').onclick = () => {
-  document.querySelector('nav').classList.toggle('active');
-};
-document.getElementById('closeNav').onclick = () => {
-  document.querySelector('nav').classList.remove('active');
-};
+
+
+  <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+const closeNav = document.getElementById('closeNav');
+
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+
+closeNav.addEventListener('click', () => {
+  nav.classList.remove('active');
+});
+
+// Optional: close menu when a link is clicked
+document.querySelectorAll('nav ul li a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+});
 
 </script>
 
