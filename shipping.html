@@ -106,7 +106,7 @@ nav button#closeNav {
       <!-- Shipping Section -->
       <section class="mb-8">
         <h2 class="text-lg font-semibold text-blue-800 mb-4 border-b pb-2">Shipping Information</h2>
-        <form action="https://formspree.io/f/xanrbnno" method="POST" id="shippingForm" class="grid grid-cols-1 gap-4">
+        <form action="https://formspree.io/f/xqarlawa" method="POST" id="shippingForm" class="grid grid-cols-1 gap-4">
           <input type="text" name="fullname" id="fullName" placeholder="Full Name" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
           <input type="email" name="email" id="email" placeholder="Email Address" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
           <input type="tel" name="phone" id="phone" placeholder="Phone Number" required class="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -245,7 +245,7 @@ document.getElementById("payButton").addEventListener("click", (e) => {
 
   // PAYSTACK SETUP
   const handler = PaystackPop.setup({
-    key: "pk_test_610876e252a4552979fbc4bccd661e9014e4b140",
+    key: "pk_live_8ace8fe30f38de3392115792099ae4801bfda4f1",
     email: details.email,
     amount: total * 100,
     currency: "NGN",
@@ -267,7 +267,7 @@ document.getElementById("payButton").addEventListener("click", (e) => {
   // Submit form using AJAX to ensure it delivers BEFORE redirect
   const formData = new FormData(form);
 
-  fetch("https://formspree.io/f/xanrbnno", {
+  fetch("https://formspree.io/f/xqarlawa", {
       method: "POST",
       body: formData,
       headers: { "Accept": "application/json" }
